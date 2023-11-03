@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    width: 100%;
+}
+body{
+    background-color: gray;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;;
+    border-bottom: 1px solid black;
+}
+
+.grid-container {
+    max-width: 1080px;
+    margin: auto;
+    background-color: rgb(206, 203, 203);
+    padding:50px 80px;
+    margin-top: 50px;
+  }
+  
+  .my-grid {
+    display: grid; 
+    margin-top: 50px;
+     grid-template-rows: repeat(2,1fr) 1fr 1fr;
+     grid-template-columns: repeat(2,1fr)  1fr 1fr 1fr;
+     gap: 10px;
+     height: 100%;
+  }
+  
+  .single-grid {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    padding:0px;
+    border: 1px solid black;
+  }
+  
+  .single-grid:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+  }
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  
+  .checkbox{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    transition: all;
+    display: none;
+  }
+
+  button{
+    border:none;
+    background-color: transparent;
+    color: red;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .single-grid:hover .checkbox{
+    display: block;
+  }
+  .single-grid:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .checkbox:checked ~ .single-grid {
+    pointer-events: none;
+  }
+
+  .active{
+    display: block;
+  }
+@media (max-width: 768px) {
+    .my-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .my-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .my-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(24, 1fr);
+    }
+  }
+  
